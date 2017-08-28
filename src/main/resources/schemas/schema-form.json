@@ -1,0 +1,16 @@
+{
+  "type" : "object",
+  "id" : "urn:jsonschema:io:gravitee:policy:overriderequestmethod:configuration:OverrideRequestMethodPolicyConfiguration",
+  "properties" : {
+    "method" : {
+      "title": "HTTP Method",
+      "description": "Override the HTTP request method with the given value.",
+      "type" : "string",
+      "default": "GET",
+      "enum" : [ "GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "CONNECT", "OPTIONS", "TRACE" ]
+    }
+  },
+  "required": [
+    "method"
+  ]
+}
