@@ -1,4 +1,4 @@
-= Override HTTP method Policy
+= Override HTTP method policy
 
 ifdef::env-github[]
 image:https://ci.gravitee.io/buildStatus/icon?job=gravitee-io/gravitee-policy-override-http-method/master["Build status", link="https://ci.gravitee.io/job/gravitee-io/job/gravitee-policy-override-http-method/"]
@@ -19,9 +19,8 @@ endif::[]
 
 == Description
 
-The `override HTTP method` is used to override the HTTP method provided by the initial consumer with a new
+You can use the `override-http-method` policy to override the HTTP method provided by the initial consumer with a new
 configured value when the inbound request is sent to the backend API.
-
 
 == Configuration
 
@@ -30,7 +29,7 @@ configured value when the inbound request is sent to the backend API.
 
 .^|method
 ^.^|X
-|HTTP method send to the backend API
+|HTTP method sent to the backend API
 ^.^|HTTP method
 ^.^|GET
 
