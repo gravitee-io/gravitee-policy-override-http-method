@@ -22,6 +22,10 @@ endif::[]
 You can use the `override-http-method` policy to override the HTTP method provided by the initial consumer with a new
 configured value when the inbound request is sent to the backend API.
 
+=== Policy identifier
+
+You can enable or disable the policy with policy identifier `policy-override-request-method`.
+
 == Configuration
 
 |===
