@@ -17,11 +17,10 @@ package io.gravitee.policy.overriderequestmethod.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.gravitee.common.http.HttpMethod;
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.io.IOException;
 import java.net.URL;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author David BRASSELY (david.brassely at graviteesource.com)
@@ -31,8 +30,10 @@ public class OverrideRequestMethodPolicyConfigurationTest {
 
     @Test
     public void test_resourceFiltering01() throws IOException {
-        OverrideRequestMethodPolicyConfiguration configuration =
-                load("/io/gravitee/policy/overriderequestmethod/configuration/overriderequestmethod01.json", OverrideRequestMethodPolicyConfiguration.class);
+        OverrideRequestMethodPolicyConfiguration configuration = load(
+            "/io/gravitee/policy/overriderequestmethod/configuration/overriderequestmethod01.json",
+            OverrideRequestMethodPolicyConfiguration.class
+        );
 
         Assert.assertNotNull(configuration);
         Assert.assertEquals(HttpMethod.PUT, configuration.getMethod());

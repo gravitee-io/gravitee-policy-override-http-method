@@ -44,7 +44,7 @@ public class OverrideRequestMethodPolicy {
 
     @OnRequest
     public void onRequest(Request request, Response response, ExecutionContext executionContext, PolicyChain policyChain) {
-            executionContext.setAttribute(ExecutionContext.ATTR_REQUEST_METHOD, configuration.getMethod());
+        executionContext.setAttribute(ExecutionContext.ATTR_REQUEST_METHOD, configuration.getMethod());
         policyChain.doNext(request, response);
     }
 }
