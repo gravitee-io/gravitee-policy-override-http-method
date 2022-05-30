@@ -24,6 +24,14 @@ endif::[]
 You can use the `override-http-method` policy to override the HTTP method provided by the initial consumer with a new
 configured value when the inbound request is sent to the backend API.
 
+== Compatibility with APIM
+
+|===
+|Plugin version | APIM version
+
+| Up to 1.x                  | All
+|===
+
 == Configuration
 
 |===
