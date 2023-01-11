@@ -9,6 +9,8 @@ endif::[]
 
 == Phase
 
+=== V3 engine
+
 [cols="2*", options="header"]
 |===
 ^|onRequest
@@ -17,6 +19,21 @@ endif::[]
 ^.^| X
 ^.^|
 
+|===
+
+=== V4 engine
+
+[cols="4*", options="header"]
+|===
+^|onRequest
+^|onResponse
+^|onMessageRequest
+^|onMessageResponse
+
+^.^| X
+^.^|
+^.^|
+^.^|
 |===
 
 == Description
@@ -30,6 +47,7 @@ configured value when the inbound request is sent to the backend API.
 |Plugin version | APIM version
 
 | Up to 1.x                  | All
+| Up to 2.x                  | 3.21+
 |===
 
 == Configuration

@@ -15,23 +15,22 @@
  */
 package io.gravitee.policy.overriderequestmethod;
 
+import io.gravitee.common.http.HttpMethod;
 import io.gravitee.gateway.api.ExecutionContext;
-import io.gravitee.gateway.api.Request;
-import io.gravitee.gateway.api.Response;
-import io.gravitee.policy.api.PolicyChain;
-import io.gravitee.policy.api.annotations.OnRequest;
+import io.gravitee.gateway.jupiter.api.context.ContextAttributes;
+import io.gravitee.gateway.jupiter.api.context.HttpExecutionContext;
+import io.gravitee.gateway.jupiter.api.policy.Policy;
 import io.gravitee.policy.overriderequestmethod.configuration.OverrideRequestMethodPolicyConfiguration;
+import io.gravitee.policy.v3.overriderequestmethod.OverrideRequestMethodPolicyV3;
+import io.reactivex.rxjava3.core.Completable;
 
 /**
- * @author David BRASSELY (david.brassely at graviteesource.com)
+ * @author Yann TAVERNIER (yann.tavernier at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class OverrideRequestMethodPolicy {
+public class OverrideRequestMethodPolicy extends OverrideRequestMethodPolicyV3 implements Policy {
 
-    /**
-     * The associated configuration to this Policy
-     */
-    private OverrideRequestMethodPolicyConfiguration configuration;
+    private final HttpMethod configuredMethod;
 
     /**
      * Create a new policy instance based on its associated configuration
@@ -39,12 +38,20 @@ public class OverrideRequestMethodPolicy {
      * @param configuration the associated configuration to the new policy instance
      */
     public OverrideRequestMethodPolicy(OverrideRequestMethodPolicyConfiguration configuration) {
-        this.configuration = configuration;
+        super(configuration);
+        configuredMethod = configuration.getMethod();
     }
 
-    @OnRequest
-    public void onRequest(Request request, Response response, ExecutionContext executionContext, PolicyChain policyChain) {
-        executionContext.setAttribute(ExecutionContext.ATTR_REQUEST_METHOD, configuration.getMethod());
-        policyChain.doNext(request, response);
+    @Override
+    public String id() {
+        return "policy-override-request-method";
+    }
+
+    @Override
+    public Completable onRequest(HttpExecutionContext ctx) {
+        return Completable.fromRunnable(() -> {
+            ctx.setAttribute(ContextAttributes.ATTR_REQUEST_METHOD, configuredMethod);
+            ctx.request().method(configuredMethod);
+        });
     }
 }
