@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.policy.overriderequestmethod;
+package io.gravitee.policy.v3.overriderequestmethod;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -25,20 +25,20 @@ import io.gravitee.gateway.api.Request;
 import io.gravitee.gateway.api.Response;
 import io.gravitee.policy.api.PolicyChain;
 import io.gravitee.policy.overriderequestmethod.configuration.OverrideRequestMethodPolicyConfiguration;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 /**
- * @author David BRASSELY (david.brassely at graviteesource.com)
+ * @author Yann TAVERNIER (yann.tavernier at graviteesource.com)
  * @author GraviteeSource Team
  */
-@RunWith(MockitoJUnitRunner.class)
-public class OverrideRequestMethodPolicyTest {
+@ExtendWith(MockitoExtension.class)
+class OverrideRequestMethodPolicyV3Test {
 
-    private OverrideRequestMethodPolicy policy;
+    private OverrideRequestMethodPolicyV3 policy;
 
     @Mock
     private OverrideRequestMethodPolicyConfiguration configuration;
@@ -55,11 +55,11 @@ public class OverrideRequestMethodPolicyTest {
     @Mock
     protected PolicyChain policyChain;
 
-    @Before
+    @BeforeEach
     public void init() {
         initMocks(this);
 
-        policy = new OverrideRequestMethodPolicy(configuration);
+        policy = new OverrideRequestMethodPolicyV3(configuration);
     }
 
     @Test

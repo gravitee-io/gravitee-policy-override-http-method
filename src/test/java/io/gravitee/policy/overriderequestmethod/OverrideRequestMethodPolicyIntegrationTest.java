@@ -25,12 +25,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import io.gravitee.apim.gateway.tests.sdk.AbstractPolicyTest;
 import io.gravitee.apim.gateway.tests.sdk.annotations.DeployApi;
 import io.gravitee.apim.gateway.tests.sdk.annotations.GatewayTest;
+import io.gravitee.apim.gateway.tests.sdk.configuration.GatewayConfigurationBuilder;
 import io.gravitee.policy.overriderequestmethod.configuration.OverrideRequestMethodPolicyConfiguration;
-import io.reactivex.observers.TestObserver;
+import io.gravitee.policy.v3.overriderequestmethod.OverrideRequestMethodPolicyV3;
 import io.vertx.core.http.HttpMethod;
-import io.vertx.reactivex.core.buffer.Buffer;
-import io.vertx.reactivex.ext.web.client.HttpResponse;
-import io.vertx.reactivex.ext.web.client.WebClient;
+import io.vertx.rxjava3.core.http.HttpClient;
+import io.vertx.rxjava3.core.http.HttpClientRequest;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -39,24 +40,32 @@ import org.junit.jupiter.params.provider.ValueSource;
  * @author GraviteeSource Team
  */
 @GatewayTest
-@DeployApi("/apis/override-http-method.json")
-class OverrideRequestMethodPolicyIntegrationTest
-    extends AbstractPolicyTest<OverrideRequestMethodPolicy, OverrideRequestMethodPolicyConfiguration> {
+@DeployApi("/apis/v3_definition/override-http-method.json")
+public class OverrideRequestMethodPolicyIntegrationTest
+    extends AbstractPolicyTest<OverrideRequestMethodPolicyV3, OverrideRequestMethodPolicyConfiguration> {
+
+    @Override
+    protected void configureGateway(GatewayConfigurationBuilder gatewayConfigurationBuilder) {
+        super.configureGateway(gatewayConfigurationBuilder);
+        gatewayConfigurationBuilder.set("api.jupiterMode.enabled", "true");
+        gatewayConfigurationBuilder.set("api.jupiterMode.default", "always");
+    }
 
     @ParameterizedTest(name = "Should change method {0} to GET")
     @ValueSource(strings = { "POST", "DELETE", "PATCH", "HEAD" })
-    void shouldChangeMethod(String method, WebClient client) {
+    void shouldChangeMethod(String method, HttpClient client) throws InterruptedException {
         wiremock.stubFor(get("/endpoint").willReturn(ok()));
 
-        TestObserver<HttpResponse<Buffer>> obs = client.request(HttpMethod.valueOf(method), "/test").rxSend().test();
-
-        awaitTerminalEvent(obs);
-        obs
-            .assertComplete()
+        client
+            .rxRequest(HttpMethod.valueOf(method), "/test")
+            .flatMap(HttpClientRequest::rxSend)
+            .test()
+            .await()
             .assertValue(response -> {
                 assertThat(response.statusCode()).isEqualTo(200);
                 return true;
             })
+            .assertComplete()
             .assertNoErrors();
 
         wiremock.verify(exactly(1), getRequestedFor(urlEqualTo("/endpoint")));
