@@ -17,9 +17,9 @@ package io.gravitee.policy.overriderequestmethod;
 
 import io.gravitee.common.http.HttpMethod;
 import io.gravitee.gateway.api.ExecutionContext;
-import io.gravitee.gateway.jupiter.api.context.ContextAttributes;
-import io.gravitee.gateway.jupiter.api.context.HttpExecutionContext;
-import io.gravitee.gateway.jupiter.api.policy.Policy;
+import io.gravitee.gateway.reactive.api.context.ContextAttributes;
+import io.gravitee.gateway.reactive.api.context.HttpExecutionContext;
+import io.gravitee.gateway.reactive.api.policy.Policy;
 import io.gravitee.policy.overriderequestmethod.configuration.OverrideRequestMethodPolicyConfiguration;
 import io.gravitee.policy.v3.overriderequestmethod.OverrideRequestMethodPolicyV3;
 import io.reactivex.rxjava3.core.Completable;
