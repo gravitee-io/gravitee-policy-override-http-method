@@ -1,3 +1,10 @@
+# [2.0.0-alpha.2](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.0.0-alpha.1...2.0.0-alpha.2) (2023-03-13)
+
+
+### Bug Fixes
+
+* rename 'jupiter' package in 'reactive' ([0ac0567](https://github.com/gravitee-io/gravitee-policy-override-http-method/commit/0ac0567e32e00045af719ce15ef8a9e18ba74054))
+
 # [2.0.0-alpha.1](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/1.3.0...2.0.0-alpha.1) (2023-01-13)
 
 
