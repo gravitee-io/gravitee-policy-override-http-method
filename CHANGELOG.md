@@ -1,3 +1,22 @@
+# [2.0.0](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/1.3.0...2.0.0) (2023-03-17)
+
+
+### Bug Fixes
+
+* **deps:** bump dependencies ([5b26345](https://github.com/gravitee-io/gravitee-policy-override-http-method/commit/5b26345a0e988a39e6d8df4fd50ec3d1d452992b))
+* rename 'jupiter' package in 'reactive' ([2a613bf](https://github.com/gravitee-io/gravitee-policy-override-http-method/commit/2a613bfd2ed05249ff033e5a3d9fddec51051f06))
+
+
+### Features
+
+* modify the request method in v4 ([c1388a4](https://github.com/gravitee-io/gravitee-policy-override-http-method/commit/c1388a41e51b6de6afc5e01c661097423550d3f4))
+
+
+### BREAKING CHANGES
+
+* Requires APIM 3.20 minimum because it requires RxJava3.
+With V4 Api definition, the request's method is directly overridden.
+
 # [2.0.0-alpha.2](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.0.0-alpha.1...2.0.0-alpha.2) (2023-03-13)
 
 
