@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.0.0...2.1.0) (2023-06-27)
+
+
+### Features
+
+* add proxy phase properties ([1b06703](https://github.com/gravitee-io/gravitee-policy-override-http-method/commit/1b06703a0cb1569be7f4912a54efbcb31cfe73af))
+
 # [2.0.0](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/1.3.0...2.0.0) (2023-03-17)
 
 
