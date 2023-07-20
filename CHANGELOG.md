@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.1.0...2.1.1) (2023-07-20)
+
+
+### Bug Fixes
+
+* update policy description ([31641e7](https://github.com/gravitee-io/gravitee-policy-override-http-method/commit/31641e791d14f5fb410c79d230ee6165c12aa68f))
+
 # [2.1.0](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.0.0...2.1.0) (2023-06-27)
 
 
