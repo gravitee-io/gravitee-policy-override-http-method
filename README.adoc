@@ -46,8 +46,8 @@ configured value when the inbound request is sent to the backend API.
 |===
 |Plugin version | APIM version
 
-| Up to 1.x                  | All
-| Up to 2.x                  | 3.21+
+| Up to 1.x                  | Up to 3.20
+| Up to 2.1                  | 4.0 to latest
 |===
 
 == Configuration
