@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.1.1...2.2.0) (2023-12-19)
+
+
+### Features
+
+* enable policy on REQUEST phase for message APIs ([1e186c4](https://github.com/gravitee-io/gravitee-policy-override-http-method/commit/1e186c4ed06fd9e57c4a20f6c78e9a581f2737f4)), closes [gravitee-io/issues#9430](https://github.com/gravitee-io/issues/issues/9430)
+
 ## [2.1.1](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.1.0...2.1.1) (2023-07-20)
 
 
