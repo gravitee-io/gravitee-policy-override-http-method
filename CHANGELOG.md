@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.2.0...2.2.1) (2024-02-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency io.gravitee:gravitee-bom to v4.0.3 ([a2b7257](https://github.com/gravitee-io/gravitee-policy-override-http-method/commit/a2b7257e8700de1f7cda620e64d70913391daa23))
+
 # [2.2.0](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.1.1...2.2.0) (2023-12-19)
 
 
