@@ -44,11 +44,13 @@ configured value when the inbound request is sent to the backend API.
 == Compatibility with APIM
 
 |===
-|Plugin version | APIM version
+| Plugin version | APIM version  | Java version
 
-| Up to 1.x                  | Up to 3.20
-| Up to 2.1                  | 4.0 to latest
+| 2.x            | 4.0 to latest | 11
+| 1.x            | Up to 3.20    | 8
 |===
+
+The *Java version* column is the bytecode level of the latest release of each line, which sets the minimum runtime able to load the artifact.
 
 == Configuration
 
