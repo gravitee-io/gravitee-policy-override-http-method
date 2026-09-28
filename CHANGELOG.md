@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.2.1...2.2.2) (2026-09-28)
+
+
+### Bug Fixes
+
+* build against published dependencies instead of a snapshot ([28e401c](https://github.com/gravitee-io/gravitee-policy-override-http-method/commit/28e401c43782cd80ac7ac3ad7f7236f162bbfb53))
+
 ## [2.2.1](https://github.com/gravitee-io/gravitee-policy-override-http-method/compare/2.2.0...2.2.1) (2024-02-28)
 
 
